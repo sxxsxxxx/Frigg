@@ -1,0 +1,39 @@
+body {
+  padding: 0;
+  margin: 0;
+  overflow: hidden; }
+
+.block-cell {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-size: 100% 100%;
+  cursor: pointer; }
+  .block-cell .block-mask {
+    position: absolute;
+    z-index: 2;
+    background: #fff;
+    opacity: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0; }
+    .block-cell .block-mask a {
+      position: absolute;
+      display: block;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0; }
+
+.debug {
+  position: fixed;
+  z-index: 9999;
+  right: 10px;
+  bottom: 10px;
+  text-align: right;
+  width: 200px; }
+  .debug select {
+    min-width: 200px; }
+
+/*# sourceMappingURL=app.css.map */

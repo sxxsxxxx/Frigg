@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+          <script type="text/javascript" src="./jquery-3.3.1.min.js"></script>
+        <style type="text/css">
+        	* {
+        		 margin: 0;
+        		 padding: 0;
+        		 list-style: none;
+        		 text-decoration: none;
+        	}
+
+        	.news {
+        		 width: 400px;
+        		 height: 400px;
+        		 border: 1px solid #ccc;
+        		 margin: 50px auto;
+        	}
+        	.title {
+        		 height: 59px;
+        		 line-height: 60px;
+        		 border-bottom: 1px solid #ccc;
+        	}
+        	li {
+        		 float: left;
+        		 width: 100px;
+        		 text-align: center;
+        		 background-color: #01204f;
+        	}
+        	li a {
+        		 color: #fff;
+        	}
+        	.content>div {
+        		 height: 340px;
+        		 background-color: #abb;
+        	}
+
+        	.content h2 {
+        		 height: 30px;
+        		 text-align: center;
+        	}
+
+        	.box {
+        		 height: 310px;
+        	}
+        	.box img {
+        		vertical-align: bottom;
+        	}
+			.active {
+				 background-color: red;
+			}
+
+			.active a {
+				 color: #fff;
+			}
+        	p {
+        		 text-indent: 2em;
+        	}
+        </style>
+    </head>
+
+
+    <body>
+
+		  <div class="news">
+		  	  <div class="title">
+		  	  	 <ul>
+		  	  	 	<li data-title="yl"><a href="#">娱乐新闻</a></li>
+		  	  	 	<li data-title="ty" class="active"><a href="#">体育新闻</a></li>
+		  	  	 	<li data-title="js"><a href="#">军事天地</a></li>
+		  	  	 	<li data-title="qc"><a href="#">汽车天下</a></li>
+		  	  	 </ul>
+		  	  </div>
+		  	  <div class="content">
+
+		  	  	 <div class="yl" style="display: none;" id="yl">
+		  	  	  	 <h2>《父子雄兵》</h2>
+		  	  	  	 <div class="box">
+		  	  	  		 <img src="le.jpg" alt="" width="100%" height="100%">
+		  	  	  	 </div>
+		  	  	  </div>
+
+		  	  	  <div class="js" style="display: none;" id="js">
+		  	  	  	  <h2 class="js_h2">军事</h2>
+		  	  	  	  <p>报道中提到，美国国家安全局（NSA）将恶意软件追溯到与朝鲜情报机关有关的IP地址，而黑客组织Lazarus Group似乎是需要为此负责，其背后操控着就是朝鲜当局。</p>
+		  	  	  </div>
+
+		  	  	  <div class="qc" style="display: none;" id="qc">
+		  	  	  	  <h2>自主轿车恐将被赶出销量前20</h2>
+		  	  	  	  <p>在SUV市场热的发紫的环境下，中国品牌纷纷在SUV市场推陈出新。但目前的市场环境来看，中国品牌与合资品牌仍旧对半分。但正因为中国品牌过分重视SUV市场，因小失大。在5月轿车市场的销量排名来看，前20名中仅吉利帝豪EC7一款中国汽车，自主轿车全面被T出销量榜前20，随时都有可能。</p>
+		  	  	  </div>
+
+		  	  	   <div class="ty" id="ty" style="display: block;">
+		  	  	  	 <h2>勇士NBA总冠军</h2>
+		  	  	  	 <div class="box">
+		  	  	  	 	<img src="ty.jpg" alt="" width="100%" height="100%">
+		  	  	  	 </div>
+		  	  	  </div>
+
+
+
+
+		  	  </div>
+		  </div>
+
+		  <script type="text/javascript">
+                var li = document.querySelectorAll("li");
+                for(var i=0;i<li.length;i++){
+                  li[i].onclick = function(){
+                    var active = document.querySelector(".active");
+                    //移除当前的被选中状态
+                    active.classList.remove("active");
+                    //移除当前显示的div,通过自定义的标签把li对应的div元素移除
+                    document.getElementById(active.dataset["title"]).style.display = "none";
+                    //当前选中li元素添加被选中的效果
+                    this.classList.add("active");
+                    let title = this.dataset["title"];
+                    document.getElementById(title).style.display = "block";
+                    let div = document.getElementById(title);
+                    if(div.className == 'js'){
+                      var h2 = div.children[0];
+                      $("#js").find('h2').html("这是自己设定的标题");
+                      }
+                  }
+                }
+
+		  	   			// var li=document.querySelectorAll("li");
+                //
+				  	    // for(var i=0;i<li.length;i++){
+				  	    // 	li[i].onclick=function(){
+				  	    // 		//移除已经存在的active类名
+				  	    // 		var active=document.querySelector(".active");
+				  	    // 			active.classList.remove("active");
+                //
+				  	    // 		//移除已经显示出来的div
+				  	    // 		document.getElementById(active.dataset["title"]).style.display="none";
+                //
+				  	    // 		//当前标签添加active类名
+				  	    // 		this.classList.add("active");
+                //
+				  	    // 		//获取当前选中li标签的自定义属性值
+				  	    // 		var data_vale=this.dataset["title"];
+                //
+				  	    // 		//根据当前获取自定义属性值获取对应的div标签
+                //
+				  	    // 		var  div=document.getElementById(data_vale);
+				  	    // 		//显示当前对应的div
+				  	    // 			 div.style.display="block";
+                //
+				  	    // 	}
+				  	    // }
+		  </script>
+    </body>
+</html>

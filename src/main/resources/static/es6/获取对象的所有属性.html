@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Person(){
+        this.name="张三",
+            this.age=18;
+    }
+    Person.prototype.length=100;
+    Person.prototype.width=500;
+
+    var p1=new Person();
+
+    // //获取到p1自身拥有的属性组成数组
+    // Object.keys(p1).forEach((value,index)=>{
+    //     console.log(value,index);
+    // })
+
+
+    //es6之前获取对象自有属性
+    for(let key in p1){
+        // console.log(key);
+
+        //要获取对象自身的属性
+        if(p1.hasOwnProperty(key)){
+            console.log(key);
+        }
+    }
+</script>
+</html>
